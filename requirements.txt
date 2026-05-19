@@ -1,0 +1,14 @@
+langgraph==0.0.48
+langchain==0.2.5
+langchain-openai==0.1.8
+langchain-core==0.1.45
+python-dotenv==1.0.0
+pydantic==2.6.3
+pandas==2.2.0
+numpy==1.24.3
+requests==2.31.0
+pypdf==4.0.1
+pdfplumber==0.10.3
+aiohttp==3.9.2
+groq==0.4.1
+phidata==2.0.0

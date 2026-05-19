@@ -1,0 +1,66 @@
+[
+  {
+    "name": "PayFlow",
+    "industry": "FinTech",
+    "jurisdiction": "India",
+    "operations": [
+      "payments",
+      "wallet",
+      "remittance",
+      "KYC"
+    ]
+  },
+
+  {
+    "name": "TradeX",
+    "industry": "Trading",
+    "jurisdiction": "USA",
+    "operations": [
+      "stocks",
+      "brokerage",
+      "compliance"
+    ]
+  },
+  {
+    "name":"Aurora",
+    "industry": "Banking",
+    "jurisdiction":"USA",
+    "operations":[
+      "payments",
+      "brokerage",
+      "venture capitalist"
+    ]
+  },
+  {
+  "name": "GreenVest Partners",
+  "industry": "Real Estate Tax Syndication",
+  "jurisdiction": "USA",
+  "operations": ["land acquisition", "conservation easements", "tax deductions", "investor syndication"]
+},
+{
+  "name": "Pine Ridge Land Fund",
+  "industry": "Real Estate Investment",
+  "jurisdiction": "USA",
+  "operations": ["land holding", "easement donations", "pass-through tax deductions"]
+},
+  {
+    "name": "Apex Capital Partners",
+    "industry": "Hedge Fund",
+    "jurisdiction": "USA",
+    "operations": [
+      "equities trading",
+      "alternative investments",
+      "high-frequency trading",
+      "portfolio management"
+    ]
+  },
+  {
+    "name":"Grow",
+    "industry":"Brokerage",
+    "jurisdiction":"India",
+    "operations":[
+      "futures and options",
+      "derivatives"
+    ]
+  }
+]
