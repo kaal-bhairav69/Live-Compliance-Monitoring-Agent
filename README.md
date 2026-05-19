@@ -1,6 +1,8 @@
-# LangGraph Multi-Agent Regulatory Intelligence System
+# LangGraph Multi-Agent Compliance Monitoring System
 
-A **multi-agent AI system** built with LangGraph that monitors regulatory sources (SEC, RBI, SEBI, IRS) and provides automated financial analysis and compliance intelligence.
+A multi-agent compliance intelligence system built using LangGraph, LLMs, and live regulatory monitoring pipelines. The platform autonomously tracks updates from major financial regulators including SEC, RBI, SEBI, and IRS, extracts regulatory content from PDFs/articles, and converts them into structured compliance intelligence.
+
+The system uses agentic orchestration to route queries, monitor jurisdiction-specific sources, analyze policy changes, generate executive briefings, and perform client-specific impact analysis. It can identify affected industries, estimate compliance severity, assign impact scores, and recommend operational actions for businesses.
 
 ## ⚡ Quick Start
 
@@ -96,19 +98,138 @@ LOG_LEVEL=INFO
 ## 📊 Workflow
 
 ```
-User Query
-    ↓
-Router Agent (classify query)
-    ↓
-Monitoring Agent (fetch documents)
-    ↓
-Analysis Agent (analyze & summarize)
-    ↓
-Briefing Agent (generate brief)
-    ↓
-Client Impact Agent (optional)
-    ↓
-Output
+┌──────────────────────────────────────────────────────────────┐                      
+│         Live Compliance Monitoring Systm                     │
+└──────────────────────────────────────────────────────────────┘
+
+
+                    ┌─────────────────────┐
+                    │      USER INPUT     │
+                    │---------------------│
+                    │ Regulatory Query    │
+                    │ Client Impact Query │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────┐
+│                    LANGGRAPH ORCHESTRATION                  │
+│--------------------------------------------------------------│
+│ Controls agent execution flow and conditional routing        │
+└──────────┬───────────────────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                        ROUTER AGENT                         │
+│--------------------------------------------------------------│
+│ Tech Used:                                                   │
+│ • Python                                                     │
+│ • LangGraph                                                  │
+│ • Rule-based Intent Routing                                  │
+│                                                              │
+│ Responsibilities:                                            │
+│ • Detect intent                                              │
+│ • Extract filters                                            │
+│ • Route workflow                                             │
+│ • Trigger agents                                             │
+└──────────┬───────────────────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                    MONITORING AGENT                         │
+│--------------------------------------------------------------│
+│ Tech Used:                                                   │
+│ • Crawl4AI                                                   │
+│ • Asyncio                                                    │
+│ • Requests                                                   │
+│ • Selenium-ready architecture                                │
+│                                                              │
+│ Sources Monitored:                                           │
+│ • RBI                                                        │
+│ • SEBI                                                       │
+│ • SEC                                                        │
+│ • IRS                                                        │
+│                                                              │
+│ Responsibilities:                                            │
+│ • Crawl regulators                                           │
+│ • Fetch new circulars                                        │
+│ • Download documents                                         │
+│ • Extract raw content                                        │
+└──────────┬───────────────────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                    EXTRACTION PIPELINE                      │
+│--------------------------------------------------------------│
+│ Tech Used:                                                   │
+│ • PyPDF                                                      │
+│ • Regex                                                      │
+│ • JSON Structuring                                           │
+│                                                              │
+│ Responsibilities:                                            │
+│ • Parse documents                                            │
+│ • Extract text                                               │
+│ • Structure metadata                                         │
+│ • Prepare LLM input                                          │
+└──────────┬───────────────────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                     ANALYSIS AGENT                          │
+│--------------------------------------------------------------│
+│ Tech Used:                                                   │
+│ • Groq LLM (Llama 3.3 70B)                                   │
+│ • Phi Framework                                              │
+│ • Pydantic Validation                                        │
+│                                                              │
+│ Responsibilities:                                            │
+│ • Summarize regulations                                      │
+│ • Detect key changes                                         │
+│ • Identify industries                                        │
+│ • Assign severity                                            │
+└──────────┬───────────────────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────────────────┐
+│              CONDITIONAL LANGGRAPH ROUTING                  │
+│--------------------------------------------------------------│
+│ If Query = Regulation Update                                 │
+│        → Briefing Agent                                      │
+│                                                              │
+│ If Query = Company/Client Impact                             │
+│        → Client Impact Agent                                 │
+└──────────┬───────────────────────────────────────────────────┘
+           │
+     ┌─────┴─────────────────────┐
+     │                           │
+     ▼                           ▼
+
+┌──────────────────────┐   ┌──────────────────────────────┐
+│   BRIEFING AGENT     │   │   CLIENT IMPACT AGENT       │
+│----------------------│   │------------------------------│
+│ Tech Used:           │   │ Tech Used:                   │
+│ • Python             │   │ • Groq LLM                   │
+│ • Structured Reports │   │ • Pydantic                   │
+│                      │   │ • JSON Client Profiles       │
+│ Responsibilities:    │   │                              │
+│ • Generate briefings │   │ Responsibilities:            │
+│ • Group updates      │   │ • Match regulations          │
+│ • Show severity      │   │ • Calculate impact score     │
+│ • Present insights   │   │ • Recommend actions          │
+└──────────┬───────────┘   └──────────────┬───────────────┘
+           │                               │
+           └──────────────┬────────────────┘
+                          ▼
+
+┌──────────────────────────────────────────────────────────────┐
+│                      FINAL OUTPUT                           │
+│--------------------------------------------------------------│
+│ • Regulatory Intelligence Briefing                           │
+│ • Severity Analysis                                          │
+│ • Affected Industries                                        │
+│ • Client Impact Reports                                      │
+│ • Compliance Recommendations                                 │
+│ • Multi-country Monitoring                                   │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ## 🚀 Features
